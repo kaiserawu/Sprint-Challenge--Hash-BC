@@ -24,11 +24,15 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 
 Explain in detail the workings of a dynamic array:
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+    Access and add/remove from back are O(1), as accessing simply requires the array locating the index, which is a quick mathematical process, and adding and removing from the back only requires the modification of one value, which is a constant speed event. Adding or removing from the front requires O(n) time, as the rest of the values in the array need to shift forward or back one place to keep things sorted correctly, as such, all items in the array need to be touched once to add or remove from the front, thus O(n).
 * What is the worse case scenario if you try to extend the storage size of a dynamic array?
+    Extending the storage size of a dynamic array would be O(n), since it requires making a new, larger array, and then copying over every value from the original array, before setting a pointer to the new array. Since every value in the old array needs to be copied over, it's an O(n) operation.
 
 Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+    A blockchain is structured similarly to a linked list, in that the previous blocks denote the location of the next block. Each block is an object that holds a set of transactions and the basic security data used to implement a blockchain. The chain the overall structure holding all the blocks and the methods used to create and modify said blocks. Each time a new block is found, it's added to the end of the list, and new transactions are added to the next block until it gets mined.
  
 Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+    Each block uses a hashing function on the previous block along with a proof of work value that, when hashed together, creates a value that meets some predetermined parameter. The validity of the proof of work gets checked, and only once valid does the block get added. The chain is protected by this because if someone tries to modify previous blocks, they'd change the hash of that block, thus invalidating the proof of work for that block as well, meaning the only way to get away with doing something like that would be to reproof all the blocks after it in the chain, faster than the work that's being done currently to mine new ones, which would pretty much only be possible if you had over 50% of the computing power being used in the system at that moment.
 
 ## Project Set Up
 
